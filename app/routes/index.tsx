@@ -1,6 +1,6 @@
 import {Link, useLoaderData} from '@remix-run/react';
 import {LoaderArgs, MetaFunction} from '@shopify/remix-oxygen';
-import {COLLECTIONS_QUERY} from '~/queries/colletionsQueries';
+import {ALL_COLLECTIONS} from '~/queries/collectionQueries';
 import type {CollectionQuery} from '~/types/queryTypes';
 import type {Collection} from '~/types/shopifyTypes';
 import {Image} from '@shopify/hydrogen';
@@ -15,7 +15,7 @@ export const meta: MetaFunction = () => {
 export async function loader({
   context,
 }: LoaderArgs): Promise<CollectionQuery<Collection>> {
-  return await context.storefront.query(COLLECTIONS_QUERY);
+  return await context.storefront.query(ALL_COLLECTIONS);
 }
 
 export default function Index() {
